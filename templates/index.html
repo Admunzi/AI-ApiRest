@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Wines Classification</title>
+    
+    <!-- Bootstrap core CSS -->
+   <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <-- Form JavaScript -->
+    <script src="{{ url_for('static',filename='vendor/main.js') }}"></script>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/templatemo-grad-school.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/owl.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/lightbox.css') }}">
+  </head>
+
+<body>
+
+  <!--header-->
+  <header class="main-header clearfix">
+    <div class="logo">
+      <a href="https://github.com/Admunzi"><em>Daniel</em> Ayala</a>
+    </div>
+  </header>
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="{{ url_for('static',filename='assets/images/course-video.mp4') }}" type="video/mp4" />
+      </video>
+
+    <div class="video-overlay header-text">
+        <div class="caption">
+            <h2>Wine Classification</h2>
+            <div class="main-button">
+                <div class="scroll-to-section"><a href="https://github.com/Admunzi/IA-ApiRest">Repository</a></div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+
+
+  <section class="section why-us" data-section="section2">
+    <br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Form Predict a wine observation</h2>
+
+          <form onsubmit="event.preventDefault(); sendIndividualObservation();"  id="individualObservation"  method="post">
+                <label>Fixed acidity
+                  <input name="fixed acidity" type="number" class="form-control" placeholder="Example: 7.4" required="" step="any">
+                </label>
+                <label>Volatile acidity
+                  <input name="volatile acidity" type="number" class="form-control" placeholder="Example: 0.700" required="" step="any">
+                </label>
+                <label>Citric acid
+                  <input name="citric acid" type="number" class="form-control" placeholder="Example: 0.08" required="" step="any">
+                </label>
+                <label>Chlorides
+                  <input name="chlorides" type="number" class="form-control" placeholder="Example: 0.090" required="" step="any">
+                </label>
+                <label>Total sulfur dioxide
+                  <input name="total sulfur dioxide" type="number" class="form-control" placeholder="Example: 44.0" required="" step="any">
+                </label>
+                <label>Density
+                  <input name="density" type="number" class="form-control" placeholder="Example: 0.99490" required="" step="any">
+                </label>
+                <label>Ph
+                  <input name="pH" type="number" class="form-control" placeholder="Example: 3.45" required="" step="any">
+                </label>
+                <label>Sulphates
+                  <input name="sulphates" type="number" class="form-control" placeholder="Example: 0.58" required="" step="any">
+                </label>
+                <label>Alcohol
+                  <input name="alcohol" type="number" class="form-control" placeholder="Example: 10.5" required="" step="any">
+                </label>
+
+
+                <button type="submit" class="button">Predict</button>
+          </form>
+
+          <h2>JSON Multi predict wine observation</h2>
+
+          <form onsubmit="event.preventDefault(); sendJsonTextArea();" method="post">
+            <textarea cols="30" rows="10" id="jsonTextArea" placeholder="{
+    &#147fixed acidity&#147: [
+        10.8,
+        8.1,
+        9.1
+    ],
+    &#147volatile acidity&#147: [
+        0.47,
+        0.82,
+        0.29
+    ],
+    &#147citric acid&#147: [
+        0.43,
+        0.0,
+        0.33
+    ],
+    &#147chlorides&#147: [
+        0.171,
+        0.095,
+        0.063
+    ],
+    &#147total sulfur dioxide&#147: [
+        66.0,
+        14.0,
+        27.0
+    ],
+    &#147density&#147: [
+        0.9982,
+        0.99854,
+        0.99516
+    ],
+    &#147pH&#147: [
+        3.17,
+        3.36,
+        3.26
+    ],
+    &#147sulphates&#147: [
+        0.76,
+        0.53,
+        0.84
+    ],
+    &#147alcohol&#147: [
+        10.8,
+        9.6,
+        11.7
+    ]
+}">{
+    "fixed acidity": [
+        10.8,
+        8.1,
+        9.1
+    ],
+    "volatile acidity": [
+        0.47,
+        0.82,
+        0.29
+    ],
+    "citric acid": [
+        0.43,
+        0.0,
+        0.33
+    ],
+    "chlorides": [
+        0.171,
+        0.095,
+        0.063
+    ],
+    "total sulfur dioxide": [
+        66.0,
+        14.0,
+        27.0
+    ],
+    "density": [
+        0.9982,
+        0.99854,
+        0.99516
+    ],
+    "pH": [
+        3.17,
+        3.36,
+        3.26
+    ],
+    "sulphates": [
+        0.76,
+        0.53,
+        0.84
+    ],
+    "alcohol": [
+        10.8,
+        9.6,
+        11.7
+    ]
+}</textarea>
+
+            <button type="submit" class="button">Predict</button>
+      </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>Daniel Ayala Cantador</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static',filename='assets/js/isotope.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/js/owl-carousel.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/js/lightbox.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/js/tabs.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/js/video.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/js/slick-slider.js') }}"></script>
+</body>
+</html>
