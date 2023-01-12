@@ -13,7 +13,7 @@ function sendJsonTextArea(){
         dataType: "json",
         contentType: "application/json",
         success: function (result) {
-            alert(result);
+            alert(JSON.stringify(result));
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);
@@ -33,7 +33,7 @@ function sendIndividualObservation(){
         dataType: "json",
         contentType: "application/json",
         success: function (result) {
-            alert(result);
+            alert(JSON.stringify(result));
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);

@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, request, render_template
 import pickle
 import pandas as pd
@@ -30,7 +32,8 @@ def load_model():
 def predict_wine(values_to_predict, model_knn):
     df = pd.DataFrame.from_dict(values_to_predict)
     result = model_knn.predict(df)
-    return result.tolist()
+    print(json.dumps({'result': result.tolist()}))
+    return json.dumps({'result': result.tolist()})
 
 
 app.run()

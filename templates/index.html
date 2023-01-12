@@ -58,7 +58,7 @@
         <div class="col-md-12">
           <h2>Form Predict a wine observation</h2>
 
-          <form onsubmit="event.preventDefault(); sendIndividualObservation();"  id="individualObservation"  method="post">
+          <form onsubmit="event.preventDefault(); sendIndividualObservation();"  id="individualObservation"  method="get">
                 <label>Fixed acidity
                   <input name="fixed acidity" type="number" class="form-control" placeholder="Example: 7.4" required="" step="any">
                 </label>
@@ -93,7 +93,7 @@
 
           <h2>JSON Multi predict wine observation</h2>
 
-          <form onsubmit="event.preventDefault(); sendJsonTextArea();" method="post">
+          <form onsubmit="event.preventDefault(); sendJsonTextArea();" method="get">
             <textarea cols="30" rows="10" id="jsonTextArea" placeholder="{
     &#147fixed acidity&#147: [
         10.8,
